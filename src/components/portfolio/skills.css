@@ -1,0 +1,99 @@
+.skills {
+  padding: var(--section-padding);
+}
+
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+  margin-bottom: 60px;
+}
+
+.skills__card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 24px 16px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.skills__card:hover {
+  transform: translateY(-8px);
+  border-color: var(--glass-border-hover);
+  background: var(--glass-bg-hover);
+  box-shadow: 0 8px 30px rgba(67, 97, 238, 0.1);
+}
+
+.skills__card-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent-cyan));
+  transition: width 0.4s ease;
+  border-radius: 0 0 14px 14px;
+}
+
+.skills__card:hover .skills__card-border {
+  width: 100%;
+}
+
+.skills__icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 10px;
+  transition: transform var(--transition);
+}
+
+.skills__card:hover .skills__icon {
+  transform: scale(1.15);
+}
+
+.skills__name {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* Soft skills */
+.skills__soft {
+  text-align: center;
+}
+
+.skills__soft-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.skills__soft-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.skills__soft-chip {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--chip-color, var(--text));
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid;
+  border-color: var(--chip-color, var(--glass-border));
+  padding: 8px 20px;
+  border-radius: 100px;
+  transition: all var(--transition);
+}
+
+.skills__soft-chip:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-2px);
+}

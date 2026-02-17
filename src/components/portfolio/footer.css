@@ -1,0 +1,50 @@
+.footer {
+  padding: 40px 0 32px;
+  border-top: 1px solid var(--glass-border);
+  text-align: center;
+}
+
+.footer__socials {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.footer__social {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: all var(--transition);
+}
+
+.footer__social--github:hover {
+  color: var(--white);
+  border-color: var(--white);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.footer__social--linkedin:hover {
+  color: #0077b5;
+  border-color: #0077b5;
+  background: rgba(0, 119, 181, 0.08);
+}
+
+.footer__social--email:hover {
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  background: rgba(76, 201, 240, 0.08);
+}
+
+.footer__copy {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  letter-spacing: 0.5px;
+}
