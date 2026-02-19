@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import SplineKeyboard from './SplineKeyboard';
 import './hero.css';
 
 const Hero = () => {
@@ -76,13 +77,15 @@ const Hero = () => {
             <a href="#projects" className="hero__cta hero__cta--primary">
               See My Work →
             </a>
-            <a href="#" className="hero__cta hero__cta--ghost">
-              Download CV
-            </a>
+            <a href="/cv.pdf" download="cv.pdf"
+             className="hero__cta hero__cta--ghost">
+  Download CV
+</a>
           </div>
         </div>
 
         <div className="hero__right">
+          {/* Code card */}
           <div ref={cardRef} className="hero__code-card">
             <div className="hero__code-dots">
               <span style={{ background: '#ff5f57' }} />
@@ -106,6 +109,9 @@ const Hero = () => {
               </code>
             </pre>
           </div>
+
+          {/* Spline 3D Keyboard */}
+          <SplineKeyboard />
         </div>
       </div>
 

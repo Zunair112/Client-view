@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
+import profileImg from '../../assets/profile.jpg';
 import './about.css';
 
 const stats = [
@@ -54,8 +55,8 @@ const About = () => {
           <div className="about__image-wrapper reveal">
             <div className="about__image-border">
               <div className="about__image-placeholder">
-                <span className="about__image-initials">ZA</span>
-              </div>
+  <img src={profileImg} alt="Profile" className="about__profile-img" />
+</div>
             </div>
           </div>
 

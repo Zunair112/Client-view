@@ -3,10 +3,10 @@ import { useScrollReveal } from '../../hooks/useScrollReveal';
 import './contact.css';
 
 const contactLinks = [
-  { label: 'zunairali@email.com', href: 'mailto:zunairali@email.com', icon: '✉' },
-  { label: 'LinkedIn', href: '#', icon: '🔗' },
-  { label: 'GitHub', href: '#', icon: '⌨' },
-  { label: '+92 XXX XXXXXXX', href: 'tel:+92', icon: '☎' },
+  { label: 'zunairali@email.com', href: 'mailto:zunairali@email.com', icon: <img src="/src/assets/gmail.png" alt="Email" width="16" height="16"/> },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/zunair-ali-188097369/', icon: <img src="/src/assets/linkedin.png" alt="LinkedIn" width="16" height="16"/> },
+  { label: 'GitHub', href: 'https://github.com/Zunair112', icon: <img src="/src/assets/github.png" alt="GitHub" width="16" height="16"/> },
+  { label: '+92 321 4427 458', href: 'tel:+92', icon: '☎' },
 ];
 
 const Contact = () => {

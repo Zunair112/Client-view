@@ -165,6 +165,13 @@
   background: rgba(67, 97, 238, 0.05);
 }
 
+/* Right column — stacks code card + spline */
+.hero__right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 /* Code card */
 .hero__code-card {
   background: rgba(10, 15, 30, 0.8);
@@ -203,6 +210,131 @@
 .code-op { color: var(--accent-cyan); }
 .code-key { color: var(--accent-cyan); }
 .code-string { color: #c3e88d; }
+
+/* ── Spline keyboard wrapper ── */
+.hero__spline-wrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  background: rgba(10, 15, 30, 0.6);
+  box-shadow: 0 8px 60px rgba(67, 97, 238, 0.12), inset 0 1px 0 rgba(255,255,255,0.04);
+  animation: slide-up-fade 0.8s ease 0.4s both;
+}
+
+.hero__spline-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 17px;
+  background: linear-gradient(135deg, rgba(67, 97, 238, 0.3), rgba(76, 201, 240, 0.15), transparent 60%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Inner canvas area — clips the Spline canvas */
+.hero__spline-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+/* Spline renders a canvas — make it fill the container */
+.hero__spline-inner canvas,
+.hero__spline-inner > div {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ── HIDE "Built with Spline" logo ── */
+.hero__spline-inner #logo,
+.hero__spline-inner a[href*="spline.design"],
+.hero__spline-inner img[alt*="Spline"],
+.hero__spline-inner [class*="logo"],
+.hero__spline-inner [id*="watermark"] {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Loading state */
+.hero__spline-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  height: 320px;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.hero__spline-loader-ring {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--glass-border);
+  border-top-color: var(--accent-cyan);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── CSS fallback keyboard ── */
+.hero__spline-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 320px;
+  padding: 20px;
+}
+
+.hero__spline-fallback-keys {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.hero__key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  border-bottom: 3px solid rgba(67, 97, 238, 0.4);
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: all 0.15s ease;
+  cursor: default;
+}
+
+.hero__key:hover {
+  background: rgba(67, 97, 238, 0.12);
+  border-color: var(--accent);
+  border-bottom-color: var(--accent-cyan);
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(67, 97, 238, 0.25);
+}
+
+.hero__key--space {
+  width: 160px;
+  height: 28px;
+}
 
 /* Scroll hint */
 .hero__scroll-hint {

@@ -7,7 +7,7 @@ const projects = [
     description: 'Modern skincare e-commerce experience with smooth UI and product showcase.',
     tech: ['React.js', 'Vite'],
     github: '#',
-    live: '#',
+    live: 'https://www.lumiskinonline.store/',
   },
   {
     title: 'WildPk',
