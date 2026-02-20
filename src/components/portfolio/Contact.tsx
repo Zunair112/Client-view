@@ -1,6 +1,9 @@
 import { useState, useRef } from 'react';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 import './contact.css';
+import gmailIcon from '../../assets/gmail.png';
+import linkedinIcon from '../../assets/linkedin.png';
+import githubIcon from '../../assets/github.png';
 
 const contactLinks = [
   { label: 'zunairali@email.com', href: 'mailto:zunairali@email.com', icon: <img src="/src/assets/gmail.png" alt="Email" width="16" height="16"/> },
