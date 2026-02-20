@@ -1,4 +1,5 @@
 import { useScrollReveal } from '../../hooks/useScrollReveal';
+import { useState } from 'react';
 import './projects.css';
 
 const projects = [
@@ -8,6 +9,15 @@ const projects = [
     tech: ['React.js', 'Vite'],
     github: '#',
     live: 'https://www.lumiskinonline.store/',
+    image: '/projects/lumiskin.png',
+  },
+  {
+    title: 'Free Flow Venture',
+    description: 'Professional business website offering digital services including web development and graphic design.',
+    tech: ['React.js', 'Vite'],
+    github: '#',
+    live: 'https://free-flow-venture-cfwl.vercel.app/',
+    image: '/projects/freeflow.png',
   },
   {
     title: 'WildPk',
@@ -15,20 +25,15 @@ const projects = [
     tech: ['React.js', 'Vite', 'Firebase'],
     github: '#',
     live: '#',
+    image: '',
   },
   {
     title: 'MedCare App',
-    description: 'Healthcare management app with AI-powered symptom analysis and doctor matching.',
-    tech: ['Flutter', 'Firebase', 'Python AI'],
+    description: 'A smart healthcare mobile application designed to assist users with health monitoring and guidance, integrating AI-based features for enhanced medical support.',
+    tech: ['Flutter', 'Firebase', 'AI'],
     github: '#',
     live: '#',
-  },
-  {
-    title: 'Student Course Allocation',
-    description: 'Intelligent course allocation system for universities with constraint satisfaction.',
-    tech: ['React.js', 'JavaScript'],
-    github: '#',
-    live: '#',
+    image: '',
   },
   {
     title: 'Pic2Calorie',
@@ -36,6 +41,7 @@ const projects = [
     tech: ['Flutter', 'Firebase', 'Python AI'],
     github: '#',
     live: '#',
+    image: '',
   },
   {
     title: 'Endless Runner Game',
@@ -43,8 +49,37 @@ const projects = [
     tech: ['Team Project', 'Game Mechanics'],
     github: '#',
     live: '#',
+    image: '',
   },
 ];
+
+// Separate component so each card has its own error state
+const ProjectImage = ({ image, title }: { image: string; title: string }) => {
+  const [imgFailed, setImgFailed] = useState(false);
+
+  if (image && !imgFailed) {
+    return (
+      <div className="projects__screenshot-wrap">
+        <img
+          src={image}
+          alt={`${title} preview`}
+          className="projects__screenshot"
+          onError={() => setImgFailed(true)}  // ← falls back to mockup on error
+        />
+        <div className="projects__screenshot-overlay" />
+      </div>
+    );
+  }
+
+  // Fallback mockup
+  return (
+    <div className="projects__mockup">
+      <div className="projects__mockup-inner">
+        <span className="projects__mockup-label">{title}</span>
+      </div>
+    </div>
+  );
+};
 
 const Projects = () => {
   const sectionRef = useScrollReveal();
@@ -68,11 +103,7 @@ const Projects = () => {
               </div>
 
               <div className="projects__image-side">
-                <div className="projects__mockup">
-                  <div className="projects__mockup-inner">
-                    <span className="projects__mockup-label">{project.title}</span>
-                  </div>
-                </div>
+                <ProjectImage image={project.image} title={project.title} />
               </div>
 
               <div className="projects__text-side">
@@ -84,12 +115,19 @@ const Projects = () => {
                   ))}
                 </div>
                 <div className="projects__links">
-                  <a href={project.github} className="projects__link" title="GitHub">
-                    &lt;/&gt;
-                  </a>
-                  <a href={project.live} className="projects__link" title="Live Demo">
-                    ↗
-                  </a>
+                  {project.github !== '#' && (
+                    <a href={project.github} target="_blank" rel="noreferrer" className="projects__link" title="GitHub">
+                      &lt;/&gt;
+                    </a>
+                  )}
+                  {project.live !== '#' && (
+                    <a href={project.live} target="_blank" rel="noreferrer" className="projects__link" title="Live Demo">
+                      ↗
+                    </a>
+                  )}
+                  {project.github === '#' && project.live === '#' && (
+                    <span className="projects__coming-soon">Coming Soon</span>
+                  )}
                 </div>
               </div>
 

@@ -190,3 +190,133 @@
     font-size: 3rem;
   }
 }
+/* ── ADD THESE STYLES TO YOUR EXISTING projects.css ──────── */
+
+/* Screenshot wrapper */
+.projects__screenshot-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+
+/* Actual screenshot image */
+.projects__screenshot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.projects__screenshot-wrap:hover .projects__screenshot {
+  transform: scale(1.04);
+}
+
+/* Subtle dark overlay so image blends with dark theme */
+.projects__screenshot-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 14, 30, 0.0) 60%,
+    rgba(8, 14, 30, 0.5) 100%
+  );
+  pointer-events: none;
+}
+
+/* Coming Soon badge for projects with no links */
+.projects__coming-soon {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border: 1px solid var(--glass-border);
+  padding: 6px 14px;
+  border-radius: 100px;
+  letter-spacing: 0.05em;
+}
+/* ── ADD THESE STYLES TO YOUR EXISTING projects.css ──────── */
+
+/* Screenshot wrapper */
+.projects__screenshot-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+
+/* Actual screenshot image */
+.projects__screenshot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.projects__screenshot-wrap:hover .projects__screenshot {
+  transform: scale(1.04);
+}
+
+/* Subtle dark overlay so image blends with dark theme */
+.projects__screenshot-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 14, 30, 0.0) 60%,
+    rgba(8, 14, 30, 0.5) 100%
+  );
+  pointer-events: none;
+}
+
+/* Coming Soon badge for projects with no links */
+.projects__coming-soon {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border: 1px solid var(--glass-border);
+  padding: 6px 14px;
+  border-radius: 100px;
+  letter-spacing: 0.05em;
+}
+
+/* ── Link button styles ───────────────────────────────────── */
+.projects__link--github {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: var(--white);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.projects__link--github:hover {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+
+.projects__link--live {
+  background: var(--accent-cyan);
+  color: #0a0f1e;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.projects__link--live:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}

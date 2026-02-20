@@ -6,7 +6,7 @@ const contactLinks = [
   { label: 'zunairali@email.com', href: 'mailto:zunairali@email.com', icon: <img src="/src/assets/gmail.png" alt="Email" width="16" height="16"/> },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/zunair-ali-188097369/', icon: <img src="/src/assets/linkedin.png" alt="LinkedIn" width="16" height="16"/> },
   { label: 'GitHub', href: 'https://github.com/Zunair112', icon: <img src="/src/assets/github.png" alt="GitHub" width="16" height="16"/> },
-  { label: '+92 321 4427 458', href: 'tel:+92', icon: '☎' },
+  { label: '+92 321 4427 458', href: 'tel:+923214427458', icon: '☎' },
 ];
 
 const Contact = () => {
@@ -18,7 +18,18 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSending(true);
-    setTimeout(() => setSending(false), 2000);
+
+    const subject = encodeURIComponent(`Portfolio Message from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+
+    window.open(`mailto:zunairali@email.com?subject=${subject}&body=${body}`, '_blank');
+
+    setTimeout(() => {
+      setSending(false);
+      setFormData({ name: '', email: '', message: '' });
+    }, 2000);
   };
 
   const handleRipple = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -45,7 +56,7 @@ const Contact = () => {
         <div className="contact__grid reveal reveal-delay-1">
           <div className="contact__info">
             {contactLinks.map((link) => (
-              <a key={link.label} href={link.href} className="contact__info-row">
+              <a key={link.label} href={link.href} className="contact__info-row" target="_blank" rel="noreferrer">
                 <span className="contact__info-icon">{link.icon}</span>
                 <span className="contact__info-label">{link.label}</span>
                 <span className="contact__info-arrow">→</span>
@@ -93,7 +104,7 @@ const Contact = () => {
               className={`contact__submit ${sending ? 'contact__submit--sending' : ''}`}
               onClick={handleRipple}
             >
-              {sending ? 'Sending...' : 'Send Message'}
+              {sending ? 'Opening Gmail...' : 'Send Message'}
             </button>
           </form>
         </div>
