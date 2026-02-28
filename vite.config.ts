@@ -21,4 +21,23 @@ export default defineConfig(({ mode }) => ({
   optimizeDeps: {
     include: ["@splinetool/react-spline", "@splinetool/runtime"],
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Heavy 3D runtime — loaded lazily, cached separately
+          spline: ["@splinetool/react-spline", "@splinetool/runtime"],
+          // Core vendor libs
+          vendor: ["react", "react-dom", "react-router-dom"],
+          // UI primitives
+          radix: [
+            "@radix-ui/react-tooltip",
+            "@radix-ui/react-toast",
+            "@radix-ui/react-dialog",
+            "@radix-ui/react-accordion",
+          ],
+        },
+      },
+    },
+  },
 }));

@@ -64,6 +64,8 @@ const ProjectImage = ({ image, title }: { image: string; title: string }) => {
           src={image}
           alt={`${title} preview`}
           className="projects__screenshot"
+          loading="lazy"
+          decoding="async"
           onError={() => setImgFailed(true)}  // ← falls back to mockup on error
         />
         <div className="projects__screenshot-overlay" />
