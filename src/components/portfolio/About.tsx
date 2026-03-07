@@ -4,16 +4,16 @@ import profileImg from '../../assets/profile.jpg';
 import './about.css';
 
 const stats = [
-  { value: 6, suffix: '+', label: 'Projects' },
-  { value: 1, suffix: '', label: 'Internship' },
+  { value: 600, suffix: '+', label: 'Projects' },
+  { value: 7, suffix: '', label: 'Years Experience' },
   { value: 4, suffix: '', label: 'Years Learning' },
 ];
 
-const education = [
-  { year: '2021 – 2025', title: 'BS Computer Science', institution: 'University' },
-  { year: '2019 – 2021', title: 'Intermediate (Pre-Engineering)', institution: 'College' },
-  { year: '2017 – 2019', title: 'Matriculation (Science)', institution: 'High School' },
-];
+//const education = [
+// { year: '2021 – 2025', title: 'BS Computer Science', institution: 'University' },
+//{ year: '2019 – 2021', title: 'Intermediate (Pre-Engineering)', institution: 'College' },
+//{ year: '2017 – 2019', title: 'Matriculation (Science)', institution: 'High School' },
+//];
 
 const Counter = ({ target, suffix }: { target: number; suffix: string }) => {
   const [count, setCount] = useState(0);
@@ -36,7 +36,7 @@ const Counter = ({ target, suffix }: { target: number; suffix: string }) => {
           requestAnimationFrame(step);
         }
       },
-      { threshold: 0.5 }
+      { threshold: 1 }
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -55,8 +55,8 @@ const About = () => {
           <div className="about__image-wrapper reveal">
             <div className="about__image-border">
               <div className="about__image-placeholder">
-  <img src={profileImg} alt="Profile" className="about__profile-img" />
-</div>
+                <img src={profileImg} alt="Profile" className="about__profile-img" />
+              </div>
             </div>
           </div>
 
@@ -65,9 +65,12 @@ const About = () => {
               About <span className="gradient-text">Me</span>
             </h2>
             <p className="about__text">
-              I'm a frontend developer focused on crafting elegant interfaces with robust
-              engineering under the hood. I care about performance, accessibility, and delightful
-              motion — the little details that elevate experiences.
+              A seasoned frontend developer with a track record of building elegant,
+              high-performance interfaces that are as solid under the hood as they look on the surface.
+              Across web and mobile — from React and TypeScript to Flutter — I've shipped products that balance pixel-perfect design with real-world scalability.
+              I've developed a deep appreciation for the details most overlook: accessibility,
+              motion design, and the micro-interactions that make users feel something.
+              I don't just write code; I craft experiences that are fast, inclusive, and built to last.
             </p>
 
             <div className="about__stats">
@@ -83,24 +86,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="about__timeline reveal reveal-delay-2">
-          <h3 className="about__timeline-title">Education</h3>
-          <div className="about__timeline-line">
-            {education.map((item, i) => (
-              <div
-                key={i}
-                className={`about__timeline-item reveal reveal-delay-${i + 2}`}
-              >
-                <div className="about__timeline-dot" />
-                <div className="about__timeline-card">
-                  <span className="about__timeline-year">{item.year}</span>
-                  <h4 className="about__timeline-heading">{item.title}</h4>
-                  <p className="about__timeline-institution">{item.institution}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+
       </div>
     </section>
   );

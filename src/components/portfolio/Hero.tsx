@@ -32,7 +32,7 @@ const Hero = () => {
     };
   }, []);
 
-  const subtitle = "Crafting responsive, accessible, and lightning-fast experiences.";
+  const subtitle = "Web and Mobile apps that look sharp, run fast, and feel right.";
 
   return (
     <section className="hero" id="hero">
@@ -66,7 +66,7 @@ const Hero = () => {
           </p>
 
           <div className="hero__pills">
-            {['React', 'Flutter', 'Firebase', 'Python'].map((tech, i) => (
+            {['React', 'Javascript', 'Flutter', 'Firebase',].map((tech, i) => (
               <span key={tech} className="hero__pill" style={{ animationDelay: `${1.8 + i * 0.1}s` }}>
                 {tech}
               </span>
@@ -77,10 +77,10 @@ const Hero = () => {
             <a href="#projects" className="hero__cta hero__cta--primary">
               See My Work →
             </a>
-            <a href="/cv.pdf" download="cv.pdf"
-             className="hero__cta hero__cta--ghost">
-  Download CV
-</a>
+            {/* <a href="/cv.pdf" download="cv.pdf"
+              className="hero__cta hero__cta--ghost">
+              Download CV
+            </a> */}
           </div>
         </div>
 
