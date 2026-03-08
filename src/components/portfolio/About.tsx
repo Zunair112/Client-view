@@ -5,8 +5,8 @@ import './about.css';
 
 const stats = [
   { value: 600, suffix: '+', label: 'Projects' },
-  { value: 7, suffix: '', label: 'Years Experience' },
-  { value: 4, suffix: '', label: 'Years Learning' },
+  { value: 7, suffix: '+', label: 'Years Experience' },
+  { value: 600, suffix: '+', label: 'Satisfied Clients' },
 ];
 
 //const education = [
