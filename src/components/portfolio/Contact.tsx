@@ -4,7 +4,7 @@ import './contact.css';
 
 
 const contactLinks = [
-  { label: 'zunairali@email.com', href: 'mailto:zunairali@email.com', 
+  { label: 'zunairali7282@email.com', href: 'mailto:zunairali@email.com', 
     icon: <img src="/gmail.png" alt="Email" width="16" height="16"/> },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/zunair-ali-188097369/', 
     icon: <img src="/linkedin.png" alt="LinkedIn" width="16" height="16"/> },
